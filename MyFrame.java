@@ -378,11 +378,11 @@ public class MyFrame extends JFrame implements ActionListener {
                 isNegative = false;
             }
 
+            // takes out the decimal from the text
+            formattedText = textField.getText().replace(".", "");
+
             // if false, convert to percent
             if (isConvertedToPercent == false) {
-
-                // takes out the decimal from the text
-                formattedText = textField.getText().replace(".", "");
                 
                 if (indexOfDecimal == 0) {
 
@@ -427,13 +427,29 @@ public class MyFrame extends JFrame implements ActionListener {
                 isConvertedToPercent = true;
             } else {
 
+                // move decimal point 2 to the right 
+                indexOfDecimal += 2;
+
+                newText = "";
+
+                // add a negative if initially negative
+                if (isNegative) {
+                    newText = "-" + newText;
+                }
 
                 // convert back to a non-percent
                 if (operator == "") {
                     input1 = Function.convertFromPercent(input1);
+
+                    // updates text field
+                    newText = input1;
                 } else {
                     input2 = Function.convertFromPercent(input2);
+
+                    newText = input2;
                 }
+
+                textField.setText(newText);
 
                 isConvertedToPercent = false;
             }
