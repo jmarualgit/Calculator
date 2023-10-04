@@ -198,7 +198,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // make visible
         this.setVisible(true);
-    }
+    } // end constructor
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -354,7 +354,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     input2 = input2.substring(1, input1.length());
                 }
             }
-        }
+        } // end signButton
 
         // the percentButton function moves the decimal two spaces to the left
         // because converting to a percent is essentially dividing by a 100
@@ -455,7 +455,7 @@ public class MyFrame extends JFrame implements ActionListener {
             }
 
             
-        }
+        } // end percentButton
 
         if (e.getSource() == addButton) {
             
@@ -559,7 +559,7 @@ public class MyFrame extends JFrame implements ActionListener {
             num2 = 0;
             input1 = String.valueOf(result);
             input2 = "";
-        }
+        } // end equalsButton
 
         if (e.getSource() == emptyButton) {
             // for debugging
@@ -591,5 +591,5 @@ public class MyFrame extends JFrame implements ActionListener {
             
             decimalCount++;
         }
-    }
+    } // end actionPerformed
 }
