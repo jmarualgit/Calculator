@@ -45,8 +45,6 @@ public class MyFrame extends JFrame implements ActionListener {
     // double to hold the result
     double result;
 
-    Function function;
-
     // constructor
     MyFrame() {
 
@@ -56,7 +54,7 @@ public class MyFrame extends JFrame implements ActionListener {
         sum = 0;
         decimalCount = 0;
         operator = "";
-        function = new Function(Double.parseDouble(input1), Double.parseDouble(input2));
+        
         
 
         // setting up my frame
@@ -515,60 +513,21 @@ public class MyFrame extends JFrame implements ActionListener {
 
         
         if (e.getSource() == equalsButton) {
-
-            /* 
-            double num1 = Function.convertToDouble(input1);
-            double num2 = Function.convertToDouble(input2);
-
-            // if else statements depending on operator
-            switch(operator) {
-
-                // for addition
-                case "+":
-
-                    // add the two
-                    result = Function.add(num1, num2);
-
-                    break;
-                
-                // for subtraction
-                case "-":
-
-                    // subtract the two
-                    result = Function.subtract(num1, num2);
-
-                    break;
-
-                // for multiplication
-                case "x":
-
-                    // multiply the two
-                    result = Function.multiply(num1, num2);
-
-                    break;
-                
-                // for dividing
-                case "/":
-
-                    // divide the two
-                    result = Function.divide(num1, num2);
-
-                    break;
-            }
+            Function function = new Function(Double.parseDouble(input1), Double.parseDouble(input2));
 
             // sets the text to the result
-            textField.setText(String.valueOf(result));
+            textField.setText(String.valueOf(function.equals(input1, input2, operator)));
 
             // so can keep adding, subtracting, etc.
             // reset operator, num1, num2, decimalcount, isconvertedtopercent
             isConvertedToPercent = false;
             decimalCount = 0;
             operator = "";
-            num1 = 0;
-            num2 = 0;
-            input1 = String.valueOf(result);
+            //num1 = 0;
+            //num2 = 0;
+            input1 = String.valueOf(function.equals(input1, input2, operator));
             input2 = "";
-            */
+            
         } // end equalsButton
 
         if (e.getSource() == emptyButton) {

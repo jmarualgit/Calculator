@@ -29,11 +29,65 @@ public class Function {
         this.y = newValue;
     }
 
-    public double equals(String input1, String input2) {
+    private void add() {
+        answer = this.x + this.y;
+    }
 
-        this.x = Double.parseDouble(string)
+    private void subtract() {
+        answer = this.x - this.y;
+    }
 
-        return
+    private void multiply() {
+        answer = this.x * this.y;
+    }
+
+    private void divide() {
+        answer = this.x / this.y;
+    }
+
+    public double equals(String input1, String input2, String operator) {
+
+        this.x = Double.parseDouble(input1);
+        this.y = Double.parseDouble(input2);
+
+
+        // if else statements depending on operator
+        switch(operator) {
+
+            // for addition
+            case "+":
+
+                // add the two
+                add();
+
+                break;
+            
+            // for subtraction
+            case "-":
+
+                // subtract the two
+                subtract();
+
+                break;
+
+            // for multiplication
+            case "x":
+
+                // multiply the two
+                multiply();
+
+                break;
+            
+            // for dividing
+            case "/":
+
+                // divide the two
+                divide();
+
+                break;
+        }
+
+        return answer;
     }
 
     /*
