@@ -324,7 +324,7 @@ public class MyFrame extends JFrame implements ActionListener {
         // the +/- button, designed to change the input from positive to negative and vice versa
         if (e.getSource() == signButton) {
 
-            /* 
+            /* */
             // if positive, add a -
             if (textField.getText().charAt(0) != '-') 
             {
@@ -358,109 +358,38 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
             
             }
-            */
+            
         } // end signButton
 
-        // the percentButton function moves the decimal two spaces to the left
-        // because converting to a percent is essentially dividing by a 100
+        /* 
+         *  percentButton!
+         *  the percentButton function moves the decimal two spaces to the left
+         *  because converting to a percent is essentially dividing by a 100
+         *  
+         *  will only be usable if 
+         *      1) as a first input as to do quick percent math
+         *      2) for the result to see the answer as a percent
+        */
         if (e.getSource() == percentButton) {
 
-            /*
-            String newText;
-            String formattedText;
-            boolean isNegative;
+            Function function = new Function(0.0,0.0);
 
-            // gets the location of where the decimal is
-            int indexOfDecimal = textField.getText().indexOf(".");
+            String textToConvert = textField.getText();
 
-            // if negative
-            if (textField.getText().charAt(0) == '-') {
+            System.out.println("textToConvert is " + textToConvert);
 
-                // takes out the first character of the textfield text
-                textField.setText(textField.getText().substring(1, textField.getText().length())); 
+            // if an operator hasn't been selected yet
+            // this will also work for when a result has been obtained because
+                // equalsButton resets operator to ""
+            if (operator == "") {
 
-                isNegative = true;
-            } else {
-                isNegative = false;
-            }
-
-            // takes out the decimal from the text
-            formattedText = textField.getText().replace(".", "");
-
-            // if false, convert to percent
-            if (isConvertedToPercent == false) {
-                
-                if (indexOfDecimal == 0) {
-
-                    // index of decimal should be at the front (very left)
-                    indexOfDecimal = 0;
-
-                    newText = "0.00" + formattedText;
-                } else if (indexOfDecimal == 1) {
-
-                    // index of decimal should be at the front (very left)
-                    indexOfDecimal = 0;
-
-                    newText = "0.0" + formattedText;
-                } else {
-
-                    // move the index of decimal 2 to the left
-                    indexOfDecimal -= 2;
-
-                    // sets the newText
-                    newText =   textField.getText().substring(0, indexOfDecimal) +
-                            "." + formattedText.substring(indexOfDecimal, formattedText.length());
-                }
-                
-                if (isNegative) {
-                    newText = "-" + newText;
-                }
-
-                // System.out.println("pre-replace: " + textField.getText());
-                // System.out.println("does it contain '.'? " + textField.getText().contains("."));
-                // String formattedText = textField.getText().replace(".", "");
-                // System.out.println("post-format: " + formattedText);
-
-                textField.setText(newText);
-
-
-                if (operator == "") {
-                    input1 = Function.convertToPercent(input1);
-                } else {
-                    input2 = Function.convertToPercent(input2);
-                }
-
+                textField.setText(function.percentConvert(textToConvert, isConvertedToPercent));
                 isConvertedToPercent = true;
             } else {
 
-                // move decimal point 2 to the right 
-                indexOfDecimal += 2;
-
-                newText = "";
-
-                // add a negative if initially negative
-                if (isNegative) {
-                    newText = "-" + newText;
-                }
-
-                // convert back to a non-percent
-                if (operator == "") {
-                    input1 = Function.convertFromPercent(input1);
-
-                    // updates text field
-                    newText = input1;
-                } else {
-                    input2 = Function.convertFromPercent(input2);
-
-                    newText = input2;
-                }
-
-                textField.setText(newText);
-
+                textField.setText(function.percentConvert(textToConvert, isConvertedToPercent));
                 isConvertedToPercent = false;
             }
-
-            */
         } // end percentButton
 
         if (e.getSource() == addButton) {

@@ -133,22 +133,10 @@ public class Function {
         return string;
     }
 
-    static String convertToPercent(String string) {
-
-        // converts to double named number
-        double number = convertToDouble(string);
-        
-        // divides number by 100 to convert to percent
-        number /= 100;
-
-        // returns value converted back to a string
-        return String.valueOf(number);
-    }
-
-    static String convertFromPercent(String string) {
+    public String convertFromPercent(String string) {
 
         // converts to a double named number
-        double number = convertToDouble(string);
+        double number = Double.parseDouble(string);
 
         // multiplies number by 100 (which is = moving decimal to the right 2x)
         // reversing the 'percentagification'
@@ -156,5 +144,20 @@ public class Function {
 
         return String.valueOf(number);
     }
+
     */
+
+    public String percentConvert(String string, boolean isPercent) {
+        // converts to double named number
+        double number = Double.parseDouble(string);
+        
+        if (isPercent == false) {
+            number /= 100;
+        } else {
+            number *= 100;
+        }
+
+        // returns value converted back to a string
+        return String.valueOf(number);
+    }
 }
