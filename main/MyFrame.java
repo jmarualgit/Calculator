@@ -1,3 +1,4 @@
+package main;
 import java.awt.*;
 import java.awt.event.*; 
 
@@ -28,6 +29,7 @@ public class MyFrame extends JFrame implements ActionListener {
     // declaring misc/placeholder button(s)
     JButton emptyButton;
     
+    /**/
     // Strings for inputs and sum
     // going to parse as double later
     String input1;
@@ -43,14 +45,19 @@ public class MyFrame extends JFrame implements ActionListener {
     // double to hold the result
     double result;
 
+    Function function;
+
     // constructor
     MyFrame() {
 
+        /* */
         input1 = "";
         input2 = "";
         sum = 0;
         decimalCount = 0;
         operator = "";
+        function = new Function(Double.parseDouble(input1), Double.parseDouble(input2));
+        
 
         // setting up my frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +75,7 @@ public class MyFrame extends JFrame implements ActionListener {
         textField.setPreferredSize(new Dimension(500, 100));
         textField.setFont(new Font("Consolas", Font.BOLD, 35));
 
-        // initializing with 0
+        // initializing with a blank
         textField.setText("");
 
         inputPanel.add(textField);
@@ -319,6 +326,7 @@ public class MyFrame extends JFrame implements ActionListener {
         // the +/- button, designed to change the input from positive to negative and vice versa
         if (e.getSource() == signButton) {
 
+            /* 
             // if positive, add a -
             if (textField.getText().charAt(0) != '-') 
             {
@@ -333,11 +341,8 @@ public class MyFrame extends JFrame implements ActionListener {
                     input2 = "-" + input2;
                 }
             } else {
+                // formatted string is a substring of all the characters of the textfield except the first character
 
-                /* 
-                 *  formatted string is a substring of all the characters of the textfield except the first character
-                 *  this is to remove the '-' sign
-                */
 
                 // original version
                 //textField.setText(textField.getText().substring(1, textField.getText().length()));
@@ -353,13 +358,16 @@ public class MyFrame extends JFrame implements ActionListener {
                 } else {
                     input2 = input2.substring(1, input1.length());
                 }
+            
             }
+            */
         } // end signButton
 
         // the percentButton function moves the decimal two spaces to the left
         // because converting to a percent is essentially dividing by a 100
         if (e.getSource() == percentButton) {
 
+            /*
             String newText;
             String formattedText;
             boolean isNegative;
@@ -454,7 +462,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 isConvertedToPercent = false;
             }
 
-            
+            */
         } // end percentButton
 
         if (e.getSource() == addButton) {
@@ -508,6 +516,7 @@ public class MyFrame extends JFrame implements ActionListener {
         
         if (e.getSource() == equalsButton) {
 
+            /* 
             double num1 = Function.convertToDouble(input1);
             double num2 = Function.convertToDouble(input2);
 
@@ -559,6 +568,7 @@ public class MyFrame extends JFrame implements ActionListener {
             num2 = 0;
             input1 = String.valueOf(result);
             input2 = "";
+            */
         } // end equalsButton
 
         if (e.getSource() == emptyButton) {

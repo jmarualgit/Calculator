@@ -1,5 +1,42 @@
+package main;
 public class Function {
 
+    private double x;
+    private double y;
+    private double answer;
+    private boolean isPercent = false;
+    private Double parseDouble;
+
+    Function(double xInput, double yInput) {
+        this.x = xInput;
+        this.y = yInput;
+        this.isPercent = false;
+    }
+
+    public double getX() {
+        return this.x;
+    }
+
+    public double getY() {
+        return this.y;
+    }
+
+    public void setX(double newValue) {
+        this.x = parseDouble;
+    }
+
+    public void setY(double newValue) {
+        this.y = newValue;
+    }
+
+    public double equals(String input1, String input2) {
+
+        this.x = Double.parseDouble(string)
+
+        return
+    }
+
+    /*
     static double add(double input1, double input2) {
 
         return input1 + input2;
@@ -23,10 +60,7 @@ public class Function {
         }
     }
 
-    static double convertToDouble(String string) {
-
-        return Double.parseDouble(string);
-    }
+    
 
     String deleteLeadingZeros(String string) {
 
@@ -68,4 +102,5 @@ public class Function {
 
         return String.valueOf(number);
     }
+    */
 }
