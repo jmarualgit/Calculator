@@ -515,8 +515,10 @@ public class MyFrame extends JFrame implements ActionListener {
         if (e.getSource() == equalsButton) {
             Function function = new Function(Double.parseDouble(input1), Double.parseDouble(input2));
 
+            String answer = String.valueOf(function.equals(input1, input2, operator));
+
             // sets the text to the result
-            textField.setText(String.valueOf(function.equals(input1, input2, operator)));
+            textField.setText(answer);
 
             // so can keep adding, subtracting, etc.
             // reset operator, num1, num2, decimalcount, isconvertedtopercent
@@ -525,7 +527,7 @@ public class MyFrame extends JFrame implements ActionListener {
             operator = "";
             //num1 = 0;
             //num2 = 0;
-            input1 = String.valueOf(function.equals(input1, input2, operator));
+            input1 = answer;
             input2 = "";
             
         } // end equalsButton
