@@ -123,41 +123,13 @@ public class MyFrame extends JFrame implements ActionListener {
 
         emptyButton = new JButton();
 
-        // adding onto button panel
-        buttonsPanel.add(clearButton);
-        buttonsPanel.add(signButton);
-        buttonsPanel.add(percentButton);
-        buttonsPanel.add(divideButton);
-
-        buttonsPanel.add(button7);
-        buttonsPanel.add(button8);
-        buttonsPanel.add(button9);
-        buttonsPanel.add(multiplyButton);
-
-        buttonsPanel.add(button4);
-        buttonsPanel.add(button5);
-        buttonsPanel.add(button6);
-        buttonsPanel.add(subtractButton);
-
-        buttonsPanel.add(button1);
-        buttonsPanel.add(button2);
-        buttonsPanel.add(button3);
-        buttonsPanel.add(addButton);
-
-        buttonsPanel.add(button0);
-        buttonsPanel.add(emptyButton);
-        buttonsPanel.add(decimalButton);
-        buttonsPanel.add(equalsButton);
-
         // a master array for all buttons
         JButton[] buttonsList = {
-        button1, button2, button3, button4, button5, 
-        button6, button7, button8, button9, button0,
-
-        clearButton, signButton, percentButton, addButton, subtractButton, 
-        multiplyButton, divideButton, equalsButton, decimalButton,
-
-        emptyButton
+        clearButton, signButton, percentButton, divideButton,
+        button7, button8, button9, multiplyButton,
+        button4, button5, button6, subtractButton,
+        button1, button2, button3, addButton,
+        button0, emptyButton, decimalButton, equalsButton
         };
 
         // put into array of input buttons
@@ -174,6 +146,8 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // customizing buttons
         for (int i = 0; i < buttonsList.length; i++) {
+            // add each button to the panel
+            buttonsPanel.add(buttonsList[i]);
 
             buttonsList[i].setForeground(new Color(0xDDDDDD));      // foreground color
             buttonsList[i].setBorderPainted(false);     // makes it so there's no border
