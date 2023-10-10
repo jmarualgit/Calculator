@@ -45,6 +45,9 @@ public class MyFrame extends JFrame implements ActionListener {
     // double to hold the result
     double result;
 
+    // to see if what's displayed is a result or an input
+    Boolean isAnAnswer;
+
     // constructor
     MyFrame() {
 
@@ -54,7 +57,7 @@ public class MyFrame extends JFrame implements ActionListener {
         sum = 0;
         decimalCount = 0;
         operator = "";
-        
+        isAnAnswer = false;
         
 
         // setting up my frame
@@ -72,6 +75,9 @@ public class MyFrame extends JFrame implements ActionListener {
         textField = new JTextField();
         textField.setPreferredSize(new Dimension(500, 100));
         textField.setFont(new Font("Consolas", Font.BOLD, 35));
+        textField.setBackground(new Color(0x444444));
+        textField.setForeground(new Color(0xDDDDDD));
+        textField.setHorizontalAlignment(SwingConstants.RIGHT);
 
         // initializing with a blank
         textField.setText("");
@@ -207,6 +213,16 @@ public class MyFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == button0 || e.getSource() == button1 || e.getSource() == button2 ||
+            e.getSource() == button3 || e.getSource() == button4 || e.getSource() == button5 ||
+            e.getSource() == button6 || e.getSource() == button7 || e.getSource() == button8 ||
+            e.getSource() == button9) {
+
+            if (isAnAnswer == true) {
+                isAnAnswer = false;
+            }
+        }
         
         // for each button
         if (e.getSource() == button1) {
@@ -319,6 +335,7 @@ public class MyFrame extends JFrame implements ActionListener {
             operator = "";
             isConvertedToPercent = false;
             decimalCount = 0;
+            isAnAnswer = false;
         }
 
         // the +/- button, designed to change the input from positive to negative and vice versa
@@ -373,23 +390,20 @@ public class MyFrame extends JFrame implements ActionListener {
         if (e.getSource() == percentButton) {
 
             Function function = new Function(0.0,0.0);
+            String convertedText = function.percentConvert(textField.getText(), isConvertedToPercent);
 
-            String textToConvert = textField.getText();
-
-            System.out.println("textToConvert is " + textToConvert);
+            // System.out.println("textToConvert is " + textField.getText());
 
             // if an operator hasn't been selected yet
             // this will also work for when a result has been obtained because
                 // equalsButton resets operator to ""
-            if (operator == "") {
-
-                textField.setText(function.percentConvert(textToConvert, isConvertedToPercent));
-                isConvertedToPercent = true;
-            } else {
-
-                textField.setText(function.percentConvert(textToConvert, isConvertedToPercent));
+            if (isConvertedToPercent == true) {
                 isConvertedToPercent = false;
+            } else {
+                isConvertedToPercent = true;
             }
+
+            textField.setText(convertedText);
         } // end percentButton
 
         if (e.getSource() == addButton) {
@@ -458,7 +472,7 @@ public class MyFrame extends JFrame implements ActionListener {
             //num2 = 0;
             input1 = answer;
             input2 = "";
-            
+            isAnAnswer = true;
         } // end equalsButton
 
         if (e.getSource() == emptyButton) {
@@ -474,6 +488,7 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("text field is " + textField.getText());
             System.out.println("operator is " + operator);
             System.out.println("has been converted to percent? " + isConvertedToPercent);
+            System.out.println("is an answer? " + isAnAnswer);
         }
 
         if (e.getSource() == decimalButton) {
