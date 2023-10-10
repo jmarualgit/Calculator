@@ -4,6 +4,39 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+/* 
+         *  Layout for calculator
+         *  
+         *  C   Neg %   /
+         *  7   8   9   x
+         *  4   5   6   -
+         *  1   2   3   +
+         *  0       .   =
+         *  
+        */
+
+        /* 
+         *  methods to implement
+         *  sin, cos, tan
+         *  various square root functions
+         *  log, ln, e, pi
+         *  custom parentheses
+         *  option to switch out between radians and degree
+         *  factorials
+        */
+
+        /* 
+         *  Layout for calculator (future) (to be implemented)
+         *  taken from google calculator (as of 2023-10-09) (YY/MM/DD)
+         *  
+         *  rad/deg       (       )     C   Neg %   /
+         *  sin    cos    tan     pi    7   8   9   x
+         *  x!     x^2    x^3     x^y   4   5   6   -
+         *  1/x    sqrtx  y^sqrtx EE    1   2   3   +
+         *  log    ln     e^x     e     0     .   =
+         *  
+        */
+
 public class MyFrame extends JFrame implements ActionListener {
 
     // see if has been converted to percent previously
@@ -30,14 +63,9 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton emptyButton;
     
     /**/
-    // Strings for inputs and sum
+    // Strings for inputs and to hold operator
     // going to parse as double later
-    String input1;
-    String input2;
-    double sum;
-
-    // string to hold operator
-    String operator;
+    String input1, input2, operator;
 
     // to make sure there are no decimal repeats
     int decimalCount;
@@ -54,7 +82,6 @@ public class MyFrame extends JFrame implements ActionListener {
         /* */
         input1 = "";
         input2 = "";
-        sum = 0;
         decimalCount = 0;
         operator = "";
         isAnAnswer = false;
@@ -84,16 +111,6 @@ public class MyFrame extends JFrame implements ActionListener {
 
         inputPanel.add(textField);
 
-        /* 
-         *  Layout for calculator
-         *  
-         *  C   Neg %   /
-         *  7   8   9   x
-         *  4   5   6   -
-         *  1   2   3   +
-         *  0       .   =
-         *  
-        */
         buttonsPanel = new JPanel(new GridLayout(5, 4, 10, 10));
         buttonsPanel.setPreferredSize(new Dimension(500, 400));
         buttonsPanel.setBackground(new Color(0x222222));
