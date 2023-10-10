@@ -236,94 +236,59 @@ public class MyFrame extends JFrame implements ActionListener {
             }
         }
 
+        // made as one liners as they are a repeat of button1 above
         if (e.getSource() == button2) {
             textField.setText(textField.getText() + "2");
 
-            if (operator == "") {
-                input1 = input1 + "2";
-            } else {
-                input2 = input2 + "2";
-            }
+            if (operator == "") {input1 = input1 + "2";} else {input2 = input2 + "2";}
         }
 
         if (e.getSource() == button3) {
             textField.setText(textField.getText() + "3");
 
-            if (operator == "") {
-                input1 = input1 + "3";
-            } else {
-                input2 = input2 + "3";
-            }
+            if (operator == "") {input1 = input1 + "3";} else {input2 = input2 + "3";}
         }
 
         if (e.getSource() == button4) {
             textField.setText(textField.getText() + "4");
 
-            if (operator == "") {
-                input1 = input1 + "4";
-            } else {
-                input2 = input2 + "4";
-            }
+            if (operator == "") {input1 = input1 + "4";} else {input2 = input2 + "4";}
         }
 
         if (e.getSource() == button5) {
             textField.setText(textField.getText() + "5");
 
-            if (operator == "") {
-                input1 = input1 + "5";
-            } else {
-                input2 = input2 + "5";
-            }
+            if (operator == "") {input1 = input1 + "5";} else {input2 = input2 + "5";}
         }
 
         if (e.getSource() == button6) {
             textField.setText(textField.getText() + "6");
 
-            if (operator == "") {
-                input1 = input1 + "6";
-            } else {
-                input2 = input2 + "6";
-            }
+            if (operator == "") {input1 = input1 + "6";} else {input2 = input2 + "6";}
         }
 
         if (e.getSource() == button7) {
             textField.setText(textField.getText() + "7");
 
-            if (operator == "") {
-                input1 = input1 + "7";
-            } else {
-                input2 = input2 + "7";
-            }
+            if (operator == "") {input1 = input1 + "7";} else {input2 = input2 + "7";}
         }
 
         if (e.getSource() == button8) {
             textField.setText(textField.getText() + "8");
 
-            if (operator == "") {
-                input1 = input1 + "8";
-            } else {
-                input2 = input2 + "8";
-            }
+            if (operator == "") {input1 = input1 + "8";} else {input2 = input2 + "8";}
         }
 
         if (e.getSource() == button9) {
             textField.setText(textField.getText() + "9");
 
-            if (operator == "") {
-                input1 = input1 + "9";
-            } else {
-                input2 = input2 + "9";
-            }
+            if (operator == "") {input1 = input1 + "9";} else {input2 = input2 + "9";}
         }
 
         if (e.getSource() == button0) {
                 textField.setText(textField.getText() + "0");
 
-                if (operator == "") {
-                    input1 = input1 + "0";
-                } else {
-                    input2 = input2 + "0";
-                }
+                if (operator == "") {input1 = input1 + "0";} else {input2 = input2 + "0";}
         }
 
         if (e.getSource() == clearButton) {
@@ -336,7 +301,7 @@ public class MyFrame extends JFrame implements ActionListener {
             isConvertedToPercent = false;
             decimalCount = 0;
             isAnAnswer = false;
-        }
+        } // end clearButton
 
         // the +/- button, designed to change the input from positive to negative and vice versa
         if (e.getSource() == signButton) {
@@ -416,7 +381,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // clears the textfield to get input2
             textField.setText("");
-        }
+        } // end addButton
 
         if (e.getSource() == subtractButton) {
             
@@ -428,7 +393,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // clears the textfield to get input2
             textField.setText("");
-        }
+        } // end subtractButton
 
         if (e.getSource() == multiplyButton) {
 
@@ -440,7 +405,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // clears the textfield to get input2
             textField.setText("");
-        }
+        } // end multiplyButton
 
         if (e.getSource() == divideButton) {
 
@@ -452,7 +417,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // clears the textfield to get input2
             textField.setText("");
-        }
+        } // end divideButton
 
         
         if (e.getSource() == equalsButton) {
@@ -489,7 +454,7 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("operator is " + operator);
             System.out.println("has been converted to percent? " + isConvertedToPercent);
             System.out.println("is an answer? " + isAnAnswer);
-        }
+        } // end emptyButton
 
         if (e.getSource() == decimalButton) {
 
