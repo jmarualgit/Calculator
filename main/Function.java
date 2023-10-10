@@ -4,15 +4,17 @@ public class Function {
     private double x;
     private double y;
     private double answer;
-    private boolean isPercent = false;
-    private Double parseDouble;
+    //private boolean isPercent = false;
+    //private Double parseDouble;
 
     Function(double xInput, double yInput) {
         this.x = xInput;
         this.y = yInput;
-        this.isPercent = false;
+        //this.isPercent = false;
     }
 
+    // yet to be used
+    /* 
     public double getX() {
         return this.x;
     }
@@ -28,6 +30,7 @@ public class Function {
     public void setY(double newValue) {
         this.y = newValue;
     }
+    */
 
     private void add() {
         answer = this.x + this.y;
