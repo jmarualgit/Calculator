@@ -169,6 +169,9 @@ public class MyFrame extends JFrame implements ActionListener {
             buttonsList[i].setForeground(new Color(0xDDDDDD));      // foreground color
             buttonsList[i].setBorderPainted(false);     // makes it so there's no border
             buttonsList[i].setFocusable(false);     // takes away dotted line
+
+            // add an action listener
+            buttonsList[i].addActionListener(this);
         }
 
         // customizing the input buttons (0 - 9)
@@ -176,9 +179,6 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // set background color
             inputButtonsList[i].setBackground(new Color(0x555555));
-
-            // add an action listener
-            buttonsList[i].addActionListener(this);
         }
 
         // customizing the functions buttons
@@ -186,12 +186,8 @@ public class MyFrame extends JFrame implements ActionListener {
 
             // set background color
             functionButtonsList[i].setBackground(new Color(0x333333));
-
-            // add an action listener
-            functionButtonsList[i].addActionListener(this);
         }
 
-        emptyButton.addActionListener(this);
         emptyButton.setBackground(new Color(0x333333));
 
         // add to panel
