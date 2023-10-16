@@ -85,14 +85,15 @@ public class MyFrame extends JFrame implements ActionListener {
         isAnAnswer = false;
     }
 
-    private void determineIfAnswer() {
+    private void pressedButton(String input) {
+        
+        // set the text of the text field
+        TextFieldPanel.setText(TextFieldPanel.getText() + input);
+
+        // change boolean value if applicable
         if (isAnAnswer == true) {
             isAnAnswer = false;
         }
-    }
-
-    private void setText(String input) {
-        TextFieldPanel.setText(TextFieldPanel.getText() + input);
     }
 
 
@@ -101,10 +102,8 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // for each button
         if (e.getSource() == ButtonPanel.getButton("0")) {
-            System.out.println("clicked button 0");
 
-            setText("0");
-            determineIfAnswer();
+            pressedButton("0");
 
             // to see which input the button should go in
             if (operator == "") {
@@ -117,8 +116,7 @@ public class MyFrame extends JFrame implements ActionListener {
         // made as one liners as they are a repeat of button1 above
         if (e.getSource() == ButtonPanel.getButton("1")) {
 
-            setText("1");
-            determineIfAnswer();
+            pressedButton("1");
 
             // to see which input the button should go in
             if (operator == "") {input1 = input1 + "1";} else {input2 = input2 + "1";}
@@ -126,64 +124,55 @@ public class MyFrame extends JFrame implements ActionListener {
 
         if (e.getSource() == ButtonPanel.getButton("2")) {
 
-            setText("2");
-            determineIfAnswer();
+            pressedButton("2");
 
             if (operator == "") {input1 = input1 + "2";} else {input2 = input2 + "2";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("3")) {
 
-            setText("3");
-            determineIfAnswer();
+            pressedButton("3");
 
             if (operator == "") {input1 = input1 + "3";} else {input2 = input2 + "3";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("4")) {
 
-            setText("4");
-            determineIfAnswer();
-
+            pressedButton("4");
             if (operator == "") {input1 = input1 + "4";} else {input2 = input2 + "4";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("5")) {
 
-            setText("5");
-            determineIfAnswer();
+            pressedButton("5");
 
             if (operator == "") {input1 = input1 + "5";} else {input2 = input2 + "5";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("6")) {
 
-            setText("6");
-            determineIfAnswer();
+            pressedButton("6");
 
             if (operator == "") {input1 = input1 + "6";} else {input2 = input2 + "6";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("7")) {
 
-            setText("7");
-            determineIfAnswer();
+            pressedButton("7");
 
             if (operator == "") {input1 = input1 + "7";} else {input2 = input2 + "7";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("8")) {
 
-            setText("8");
-            determineIfAnswer();
+            pressedButton("8");
 
             if (operator == "") {input1 = input1 + "8";} else {input2 = input2 + "8";}
         }
 
         if (e.getSource() == ButtonPanel.getButton("9")) {
 
-            setText("9");
-            determineIfAnswer();
+            pressedButton("9");
 
             if (operator == "") {input1 = input1 + "9";} else {input2 = input2 + "9";}
         }
