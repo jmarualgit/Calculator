@@ -53,14 +53,11 @@ public class MyFrame extends JFrame implements ActionListener {
         "+/-", "%", "+", "-", "x", "/", "=", ".", ""
     };
 
-    //JButton btn1;
-
     // constructor
     MyFrame() {
 
         buttonPanel = new ButtonPanel();
         textFieldPanel = new TextFieldPanel();
-        //btn1 = ButtonPanel.getButton("1");
 
         initialize();
 
