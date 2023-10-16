@@ -1,14 +1,15 @@
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 
 
 public class ButtonHandler extends MyFrame {
 
     ButtonHandler() {
 
-        addActionListeners();
+        //addActionListeners();
     }
 
+    /* 
     public static void addActionListeners() {
         ButtonPanel.getButton("1").addMouseListener(new MouseAdapter() {
         
@@ -30,9 +31,7 @@ public class ButtonHandler extends MyFrame {
                 }
             }
         });
-        
 
-        /* 
         for (int i = 0; i < ButtonPanel.inputButtonsList.length; i++) {
 
             String position = String.valueOf(i); 
@@ -63,7 +62,8 @@ public class ButtonHandler extends MyFrame {
             }); // end addMouseListener
             
         } // end for loop
-        */
+        
     } // end addActionListeners
+    */
 }
 
