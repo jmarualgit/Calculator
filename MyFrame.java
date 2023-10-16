@@ -46,7 +46,6 @@ public class MyFrame extends JFrame implements ActionListener {
     static int indexOfDecimal;                     // to see where in the string the decimal is located
     static String input1, input2, operator;        // Strings for inputs and to hold operator
     static int decimalCount;                       // to make sure there are no decimal repeats
-    static double result;                          // double to hold the result
     static Boolean isAnAnswer;                     // to see if what's displayed is a result or an input
 
     private String[] buttonTexts = {
@@ -70,9 +69,6 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setSize(500, 500);
         this.setLayout(new BorderLayout(0, 0));
 
-        //ButtonPanel.getButton("1").addActionListener(this);
-        //ButtonPanel.getButton(buttonTexts[1]).addActionListener(this);
-        //ButtonPanel.getButton("2").addActionListener(this);
         for (int i = 0; i < buttonTexts.length; i++) {
             ButtonPanel.getButton(buttonTexts[i]).addActionListener(this);
         }
@@ -95,8 +91,6 @@ public class MyFrame extends JFrame implements ActionListener {
     private void determineIfAnswer() {
         if (isAnAnswer == true) {
             isAnAnswer = false;
-        } else {
-            isAnAnswer = true;
         }
     }
 
@@ -197,11 +191,11 @@ public class MyFrame extends JFrame implements ActionListener {
             if (operator == "") {input1 = input1 + "9";} else {input2 = input2 + "9";}
         }
 
-        /* 
-        if (e.getSource() == clearButton) {
+        // clear button
+        if (e.getSource() == ButtonPanel.getButton("C")) {
 
             // set to original values
-            textField.setText("");
+            TextFieldPanel.setText("");
             input1 = "";
             input2 = "";
             operator = "";
@@ -209,15 +203,14 @@ public class MyFrame extends JFrame implements ActionListener {
             decimalCount = 0;
             isAnAnswer = false;
         } // end clearButton
-
+        
         // the +/- button, designed to change the input from positive to negative and vice versa
-        if (e.getSource() == signButton) {
+        if (e.getSource() == ButtonPanel.getButton("+/-")) {
 
             // if positive, add a -
-            if (textField.getText().charAt(0) != '-') 
-            {
+            if (TextFieldPanel.getText().charAt(0) != '-') {
                 // adding a '-'
-                textField.setText("-" + textField.getText());
+                TextFieldPanel.setText("-" + TextFieldPanel.getText());
 
                 // do the same for input1
                 // if no operator has been selected yet (default value), then designate to input1
@@ -234,9 +227,9 @@ public class MyFrame extends JFrame implements ActionListener {
                 //textField.setText(textField.getText().substring(1, textField.getText().length()));
 
                 // easier to understand
-                String formattedString = textField.getText().substring(1,  textField.getText().length());
+                String formattedString = TextFieldPanel.getText().substring(1,  TextFieldPanel.getText().length());
 
-                textField.setText(formattedString);
+                TextFieldPanel.setText(formattedString);
 
                 // take out the first value of string which would be the '-'
                 if (operator == "") {
@@ -257,11 +250,11 @@ public class MyFrame extends JFrame implements ActionListener {
          *  will only be usable if 
          *      1) as a first input as to do quick percent math
          *      2) for the result to see the answer as a percent
-        
-        if (e.getSource() == percentButton) {
+        */
+        if (e.getSource() == ButtonPanel.getButton("%")) {
 
             Function function = new Function(0.0,0.0);
-            String convertedText = function.percentConvert(textField.getText(), isConvertedToPercent);
+            String convertedText = function.percentConvert(TextFieldPanel.getText(), isConvertedToPercent);
 
             // System.out.println("textToConvert is " + textField.getText());
 
@@ -274,10 +267,11 @@ public class MyFrame extends JFrame implements ActionListener {
                 isConvertedToPercent = true;
             }
 
-            textField.setText(convertedText);
+            TextFieldPanel.setText(convertedText);
         } // end percentButton
 
-        if (e.getSource() == addButton) {
+        // add button
+        if (e.getSource() == ButtonPanel.getButton("+")) {
             
             // set the operator sign
             operator = "+";
@@ -286,10 +280,11 @@ public class MyFrame extends JFrame implements ActionListener {
             decimalCount = 0;
 
             // clears the textfield to get input2
-            textField.setText("");
+            TextFieldPanel.setText("");
         } // end addButton
 
-        if (e.getSource() == subtractButton) {
+        // subtract button
+        if (e.getSource() == ButtonPanel.getButton("-")) {
             
             // set the operator sign
             operator = "-";
@@ -298,10 +293,11 @@ public class MyFrame extends JFrame implements ActionListener {
             decimalCount = 0;
 
             // clears the textfield to get input2
-            textField.setText("");
+            TextFieldPanel.setText("");
         } // end subtractButton
 
-        if (e.getSource() == multiplyButton) {
+        // multiply button
+        if (e.getSource() == ButtonPanel.getButton("x")) {
 
             // set the operator sign
             operator = "x";
@@ -310,10 +306,11 @@ public class MyFrame extends JFrame implements ActionListener {
             decimalCount = 0;
 
             // clears the textfield to get input2
-            textField.setText("");
+            TextFieldPanel.setText("");
         } // end multiplyButton
 
-        if (e.getSource() == divideButton) {
+        // divide button
+        if (e.getSource() == ButtonPanel.getButton("/")) {
 
             // set the operator sign
             operator = "/";
@@ -322,37 +319,34 @@ public class MyFrame extends JFrame implements ActionListener {
             decimalCount = 0;
 
             // clears the textfield to get input2
-            textField.setText("");
+            TextFieldPanel.setText("");
         } // end divideButton
 
-        
-        if (e.getSource() == equalsButton) {
+        // equals button
+        if (e.getSource() == ButtonPanel.getButton("=")) {
             Function function = new Function(Double.parseDouble(input1), Double.parseDouble(input2));
 
             String answer = String.valueOf(function.equals(input1, input2, operator));
 
             // sets the text to the result
-            textField.setText(answer);
+            TextFieldPanel.setText(answer);
 
             // so can keep adding, subtracting, etc.
             // reset operator, num1, num2, decimalcount, isconvertedtopercent
             isConvertedToPercent = false;
             decimalCount = 0;
             operator = "";
-            //num1 = 0;
-            //num2 = 0;
             input1 = answer;
             input2 = "";
             isAnAnswer = true;
         } // end equalsButton
 
-        
-
-        if (e.getSource() == decimalButton) {
+        // . button
+        if (e.getSource() == ButtonPanel.getButton(".")) {
 
             // so as to not have repeats of decimals
             if (decimalCount == 0) {
-                textField.setText(textField.getText() + ".");
+                TextFieldPanel.setText(TextFieldPanel.getText() + ".");
             }
 
             if (operator == "") {
@@ -363,14 +357,12 @@ public class MyFrame extends JFrame implements ActionListener {
             
             decimalCount++;
         }
-        */
 
         if (e.getSource() == ButtonPanel.getButton("")) {
             // for debugging 
             System.out.println("***NUMBERS***");
             System.out.println("input1 is " + input1);
             System.out.println("input2 is " + input2);
-            System.out.println("result is " + result);
             System.out.println("indexOfDecimal is " + indexOfDecimal);
 
             System.out.println("***OTHERS***");
