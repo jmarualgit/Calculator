@@ -4,16 +4,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 /* 
-         *  Layout for calculator
-         *  
-         *  C   Neg %   /
-         *  7   8   9   x
-         *  4   5   6   -
-         *  1   2   3   +
-         *  0       .   =
-         *  
-        */
-
         /* 
          *  methods to implement
          *  sin, cos, tan
