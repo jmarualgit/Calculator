@@ -75,7 +75,7 @@ public class MyFrame extends JFrame implements ActionListener {
         isAnAnswer = false;
     }
 
-    private void pressedButton(String input) {
+    private void pressedInputButton(String input) {
         
         // set the text of the text field
         TextFieldPanel.setText(TextFieldPanel.getText() + input);
@@ -84,8 +84,26 @@ public class MyFrame extends JFrame implements ActionListener {
         if (isAnAnswer == true) {
             isAnAnswer = false;
         }
+
+        // to see which input the button should go in
+        if (operator == "") {
+            input1 = input1 + input;
+        } else {
+            input2 = input2 + input;
+        }
     }
 
+    private void pressedFuncButton(String operationInput) {
+
+        // sets the operator
+        operator = operationInput;
+
+        // reset
+        decimalCount = 0;
+
+        // clear text field
+        TextFieldPanel.setText("");
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -93,79 +111,27 @@ public class MyFrame extends JFrame implements ActionListener {
         // for each button
         if (e.getSource() == ButtonPanel.getButton("0")) {
 
-            pressedButton("0");
-
-            // to see which input the button should go in
-            if (operator == "") {
-                input1 = input1 + "0";
-            } else {
-                input2 = input2 + "0";
-            }
+            pressedInputButton("0");
         }
 
         // made as one liners as they are a repeat of button1 above
-        if (e.getSource() == ButtonPanel.getButton("1")) {
+        if (e.getSource() == ButtonPanel.getButton("1")) {pressedInputButton("1");}
 
-            pressedButton("1");
+        if (e.getSource() == ButtonPanel.getButton("2")) {pressedInputButton("2");}
 
-            // to see which input the button should go in
-            if (operator == "") {input1 = input1 + "1";} else {input2 = input2 + "1";}
-        }
+        if (e.getSource() == ButtonPanel.getButton("3")) {pressedInputButton("3");}
 
-        if (e.getSource() == ButtonPanel.getButton("2")) {
+        if (e.getSource() == ButtonPanel.getButton("4")) {pressedInputButton("4");}
 
-            pressedButton("2");
+        if (e.getSource() == ButtonPanel.getButton("5")) {pressedInputButton("5");}
 
-            if (operator == "") {input1 = input1 + "2";} else {input2 = input2 + "2";}
-        }
+        if (e.getSource() == ButtonPanel.getButton("6")) {pressedInputButton("6");}
 
-        if (e.getSource() == ButtonPanel.getButton("3")) {
+        if (e.getSource() == ButtonPanel.getButton("7")) {pressedInputButton("7");}
 
-            pressedButton("3");
+        if (e.getSource() == ButtonPanel.getButton("8")) {pressedInputButton("8");}
 
-            if (operator == "") {input1 = input1 + "3";} else {input2 = input2 + "3";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("4")) {
-
-            pressedButton("4");
-            if (operator == "") {input1 = input1 + "4";} else {input2 = input2 + "4";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("5")) {
-
-            pressedButton("5");
-
-            if (operator == "") {input1 = input1 + "5";} else {input2 = input2 + "5";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("6")) {
-
-            pressedButton("6");
-
-            if (operator == "") {input1 = input1 + "6";} else {input2 = input2 + "6";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("7")) {
-
-            pressedButton("7");
-
-            if (operator == "") {input1 = input1 + "7";} else {input2 = input2 + "7";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("8")) {
-
-            pressedButton("8");
-
-            if (operator == "") {input1 = input1 + "8";} else {input2 = input2 + "8";}
-        }
-
-        if (e.getSource() == ButtonPanel.getButton("9")) {
-
-            pressedButton("9");
-
-            if (operator == "") {input1 = input1 + "9";} else {input2 = input2 + "9";}
-        }
+        if (e.getSource() == ButtonPanel.getButton("9")) {pressedInputButton("9");}
 
         // clear button
         if (e.getSource() == ButtonPanel.getButton("C")) {
@@ -197,7 +163,6 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
             } else {
                 // formatted string is a substring of all the characters of the textfield except the first character
-
 
                 // original version
                 //textField.setText(textField.getText().substring(1, textField.getText().length()));
@@ -249,54 +214,18 @@ public class MyFrame extends JFrame implements ActionListener {
         // add button
         if (e.getSource() == ButtonPanel.getButton("+")) {
             
-            // set the operator sign
-            operator = "+";
-
-            // reset decimal count
-            decimalCount = 0;
-
-            // clears the textfield to get input2
-            TextFieldPanel.setText("");
+            pressedFuncButton("+");
         } // end addButton
 
+        // made into one liners as they are repeats of above
         // subtract button
-        if (e.getSource() == ButtonPanel.getButton("-")) {
-            
-            // set the operator sign
-            operator = "-";
-
-            // reset decimal count
-            decimalCount = 0;
-
-            // clears the textfield to get input2
-            TextFieldPanel.setText("");
-        } // end subtractButton
+        if (e.getSource() == ButtonPanel.getButton("-")) {pressedFuncButton("-");}
 
         // multiply button
-        if (e.getSource() == ButtonPanel.getButton("x")) {
-
-            // set the operator sign
-            operator = "x";
-
-            // reset decimal count
-            decimalCount = 0;
-
-            // clears the textfield to get input2
-            TextFieldPanel.setText("");
-        } // end multiplyButton
+        if (e.getSource() == ButtonPanel.getButton("x")) {pressedFuncButton("x");}
 
         // divide button
-        if (e.getSource() == ButtonPanel.getButton("/")) {
-
-            // set the operator sign
-            operator = "/";
-
-            // reset decimal count
-            decimalCount = 0;
-
-            // clears the textfield to get input2
-            TextFieldPanel.setText("");
-        } // end divideButton
+        if (e.getSource() == ButtonPanel.getButton("/")) {pressedFuncButton("/");}
 
         // equals button
         if (e.getSource() == ButtonPanel.getButton("=")) {
