@@ -1,4 +1,3 @@
-package main;
 public class Function {
 
     private double x;
