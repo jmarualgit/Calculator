@@ -149,8 +149,10 @@ public class MyFrame extends JFrame implements ActionListener {
         // the +/- button, designed to change the input from positive to negative and vice versa
         if (e.getSource() == ButtonPanel.getButton("+/-")) {
 
+            char firstCharacter = TextFieldPanel.getText().charAt(0);
+
             // if positive, add a -
-            if (TextFieldPanel.getText().charAt(0) != '-') {
+            if (firstCharacter != '-') {
                 // adding a '-'
                 TextFieldPanel.setText("-" + TextFieldPanel.getText());
 
@@ -162,13 +164,11 @@ public class MyFrame extends JFrame implements ActionListener {
                     input2 = "-" + input2;
                 }
             } else {
+
+                int textLength = TextFieldPanel.getText().length();
+
                 // formatted string is a substring of all the characters of the textfield except the first character
-
-                // original version
-                //textField.setText(textField.getText().substring(1, textField.getText().length()));
-
-                // easier to understand
-                String formattedString = TextFieldPanel.getText().substring(1,  TextFieldPanel.getText().length());
+                String formattedString = TextFieldPanel.getText().substring(1,  textLength);
 
                 TextFieldPanel.setText(formattedString);
 
