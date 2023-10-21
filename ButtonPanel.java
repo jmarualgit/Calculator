@@ -78,12 +78,9 @@ public class ButtonPanel extends JPanel {
             // add each button to the panel
             this.add(buttonsList[i]);
 
-            buttonsList[i].setForeground(new Color(0xDDDDDD));      // foreground color
-            buttonsList[i].setBorderPainted(false);     // makes it so there's no border
-            buttonsList[i].setFocusable(false);     // takes away dotted line
-
-            // add an action listener
-            //buttonsList[i].addActionListener(this);
+            buttonsList[i].setForeground(new Color(0xDDDDDD));        // foreground color
+            buttonsList[i].setBorderPainted(false);                     // makes it so there's no border
+            buttonsList[i].setFocusable(false);                 // takes away dotted line
         }
 
         // customizing the input buttons (0 - 9)
@@ -106,26 +103,14 @@ public class ButtonPanel extends JPanel {
     public static JButton getButton(String buttonText) {
         JButton buttonToBeReturned = button0;
 
-        //System.out.println("starting for loop");
-        //System.out.println("buttonText is " + buttonText);
-
         for (int i = 0; i < buttonsList.length; i++) {
-
-            //System.out.println("getText is " + buttonsList[i].getText());
 
             if (buttonsList[i].getText() == buttonText) {
 
-                //System.out.println("buttons[i].getText() == buttonText");
                 buttonToBeReturned = buttonsList[i];
-
-                //System.out.println("Found " + buttonText + "!");
                 break;
             }
-
-            //System.out.println("at position: " + i + ", button text is " + buttonsList[i].getText());
         }
-
-        //System.out.println("loop ended");
 
         return buttonToBeReturned;
     }
