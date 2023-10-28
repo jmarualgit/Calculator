@@ -5,7 +5,7 @@ public class Function {
     private double answer;
     private boolean isPercent;                      // see if has been converted to percent previously 
     private int indexOfDecimal;                     // to see where in the string the decimal is located
-    private String input1, input2, operator;        // Strings for inputs and to hold operator
+    private String input1, input2, operator;        // Strings for inputs and to hold operator for easy converting to textfieldpanel
     private int decimalCount;                       // to make sure there are no decimal repeats
     private Boolean isAnAnswer = false;             // to see if what's displayed is a result or an input
     //private Double parseDouble;
@@ -19,77 +19,29 @@ public class Function {
         this.decimalCount = 0;
     }
 
-    public double getX() {
-        return this.x;
-    }
+    // getters
+    public double getX() {return this.x;}
+    public double getY() {return this.y;}
+    public String getInput1() {return this.input1;}
+    public String getInput2() {return this.input2;}
+    public int getIndexOfDecimal() {return this.indexOfDecimal;}
+    public String getOperator() {return this.operator;}
+    public boolean getIsPercent() {return this.isPercent;}
+    public int getDecimalCount() {return this.decimalCount;}
+    public boolean getIsAnAnswer() {return this.isAnAnswer;}
 
-    public double getY() {
-        return this.y;
-    }
-
-    public void setX(double newValue) {
-        this.x = newValue;
-    }
-
-    public void setY(double newValue) {
-        this.y = newValue;
-    }
-
-    public String getInput1() {
-        return this.input1;
-    }
-
-    public void setInput1(String newInput1) {
-        this.input1 = newInput1;
-    }
-
-    public String getInput2() {
-        return this.input2;
-    }
-
-    public void setInput2(String newInput2) {
-        this.input2 = newInput2;
-    }
-
-    public int getIndexOfDecimal() {
-        return this.indexOfDecimal;
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String newOperator) {
-        this.operator = newOperator;
-    }
-
-    public boolean getIsPercent() {
-        return this.isPercent;
-    }
-
-    public void setIsPercent(Boolean newBoolean) {
-        this.isPercent = newBoolean;
-    }
-
-    public boolean getIsAnAnswer() {
-        return this.isAnAnswer;
-    }
-
-    public int getDecimalCount() {
-        return this.decimalCount;
-    }
-
-    public void setDecimalCount(int newDecimalCount) {
-        this.decimalCount = newDecimalCount;
-    }
-
-    public void setIsAnAnswer(boolean newBoolean) {
-        this.isAnAnswer = newBoolean;
-    }
+    // setters
+    public void setX(double newValue) {this.x = newValue;}
+    public void setY(double newValue) {this.y = newValue;}
+    public void setInput1(String newInput1) {this.input1 = newInput1;}
+    public void setInput2(String newInput2) {this.input2 = newInput2;}
+    public void setIndexOfDecimal(int newIndex) {this.indexOfDecimal = newIndex;} 
+    public void setOperator(String newOperator) {this.operator = newOperator;}
+    public void setIsPercent(Boolean newBoolean) {this.isPercent = newBoolean;}
+    public void setDecimalCount(int newDecimalCount) {this.decimalCount = newDecimalCount;}
+    public void setIsAnAnswer(boolean newBoolean) {this.isAnAnswer = newBoolean;}
 
     private void add() {
-        //System.out.println("DEBUG: currently adding " + this.x + " and " + this.y);
-        
         this.answer = this.x + this.y;
     }
 
@@ -112,34 +64,27 @@ public class Function {
 
             // for addition
             case "+":
-
-                //System.out.println("DEBUG: currently adding");
-
                 add();
                 break;
             
             // for subtraction
             case "-":
-
                 subtract();
                 break;
 
             // for multiplication
             case "x":
-
                 multiply();
                 break;
             
             // for dividing
             case "/":
-
                 divide();
                 break;
         }
     }
 
     public double getAnswer(String operator) {
-        //System.out.println("DEBUG: operator argument is " + operator);
 
         this.x = Double.parseDouble(input1);
         this.y = Double.parseDouble(input2);
