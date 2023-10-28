@@ -159,15 +159,17 @@ public class ButtonHandler {
                     // so as to not have repeats of decimals
                     if (function.getDecimalCount() == 0) {
                         TextFieldPanel.setText(TextFieldPanel.getText() + ".");
+
+                        if (function.getOperator() == "") {
+                            function.setInput1(function.getInput1() + ".");
+                        } else {
+                            function.setInput2(function.getInput2() + ".");
+                        }
                     }
 
-                    if (function.getOperator() == "") {
-                        function.setInput1(function.getInput1() + ".");
-                    } else {
-                        function.setInput2(function.getInput2() + ".");
+                    if (function.getDecimalCount() != 1) {
+                        function.setDecimalCount(1);
                     }
-                    
-                    function.setDecimalCount(function.getDecimalCount() + 1);
                 } // end . button
 
                 if (event == ButtonPanel.getButton("")) {
@@ -176,6 +178,7 @@ public class ButtonHandler {
                     System.out.println("input1 is " + function.getInput1());
                     System.out.println("input2 is " + function.getInput2());
                     System.out.println("indexOfDecimal is " + function.getIndexOfDecimal());
+                    System.out.println("decimal count: " + function.getDecimalCount());
         
                     System.out.println("***OTHERS***");
                     System.out.println("text field is " + TextFieldPanel.getText());
