@@ -143,6 +143,12 @@ public class ButtonHandler {
                     // sets the text to the result
                     TextFieldPanel.setText(answer);
 
+                    String operator = function.getOperator();
+                    String firstInput = function.getInput1();
+                    String secondInput = function.getInput2();
+
+                    TextFieldPanel.setCurrentOperationText(firstInput + " " + operator + " " + secondInput);
+
                     // so can keep adding, subtracting, etc.
                     // reset operator, num1, num2, decimalcount, isconvertedtopercent
                     function.setIsPercent(false);
