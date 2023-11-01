@@ -152,11 +152,14 @@ public class ButtonHandler {
                     // so can keep adding, subtracting, etc.
                     // reset operator, num1, num2, decimalcount, isconvertedtopercent
                     function.setIsPercent(false);
-                    function.setDecimalCount(0);
                     function.setOperator("");
                     function.setInput1(answer);
                     function.setInput2("");
                     function.setIsAnAnswer(true);
+
+                    if (answer.contains(".")) {
+                        function.setDecimalCount(1);
+                    }
                 } // end equalsButton
 
                 // . button
