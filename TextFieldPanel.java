@@ -12,8 +12,7 @@ public class TextFieldPanel extends JPanel {
     private static JTextField currentOperationTextField;
     private static JTextField textField;
 
-    private final Dimension currentOperationTextFieldSize = new Dimension(500, 25);
-    private final Dimension textFieldSize = new Dimension(500, 75);
+    private final int width = 800;
 
     private final Font mainFont = new Font("Consolas", Font.BOLD, 35);
     private final Font operationTextFieldFont = new Font("Consolas", Font.BOLD, 15);
@@ -24,18 +23,19 @@ public class TextFieldPanel extends JPanel {
 
     TextFieldPanel() {
         this.setLayout(new BorderLayout(0, 0));
+        this.setPreferredSize(new Dimension(800, 100));
 
         textField = new JTextField("");
         currentOperationTextField = new JTextField("");
 
-        textField.setSize(textFieldSize);
+        textField.setSize(new Dimension(width, 75));
         textField.setFont(mainFont);
         textField.setBackground(backgroundColor);
         textField.setForeground(foregroundColor);
         textField.setHorizontalAlignment(SwingConstants.RIGHT);
         textField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
-        currentOperationTextField.setSize(currentOperationTextFieldSize);
+        currentOperationTextField.setSize(new Dimension(width, 25));
         currentOperationTextField.setFont(operationTextFieldFont);
         currentOperationTextField.setBackground(backgroundColor);
         currentOperationTextField.setForeground(currentOperationColor);
@@ -47,6 +47,7 @@ public class TextFieldPanel extends JPanel {
         this.add(textField, BorderLayout.CENTER);
     }
 
+    // getters and setters
     public static void setText(String string) {textField.setText(string);}
 
     public static void setCurrentOperationText(String string) {currentOperationTextField.setText(string);}
