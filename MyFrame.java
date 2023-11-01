@@ -34,21 +34,19 @@ public class MyFrame extends JFrame {
     // constructor
     MyFrame() {
 
-        buttonPanel = new ButtonPanel();
-        textFieldPanel = new TextFieldPanel();
-        buttonHandler = new ButtonHandler();
-
-        // setting up frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500, 500);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        buttonHandler = new ButtonHandler();
         this.setLayout(new BorderLayout(0, 0));
 
-        buttonHandler.addActionListeners();
+        buttonPanel = new ButtonPanel();
+        textFieldPanel = new TextFieldPanel();
 
-        // add to panel
         this.add(textFieldPanel, BorderLayout.NORTH);
         this.add(buttonPanel, BorderLayout.CENTER);
 
+        buttonHandler.addActionListeners();
         this.setVisible(true);
     } // end constructor
 }
