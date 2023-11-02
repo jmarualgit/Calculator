@@ -42,6 +42,7 @@ public class ButtonHandler {
                 // clear button
                 if (event == ButtonPanel.getButton("C")) {
                     TextFieldPanel.setText("");
+                    TextFieldPanel.setCurrentOperationText("");
 
                     // set to original values
                     function.setInput1("");
@@ -136,7 +137,7 @@ public class ButtonHandler {
 
                 // equals button
                 if (event == ButtonPanel.getButton("=")) {
-                    String answer = String.valueOf(function.getAnswer(function.getOperator()));
+                    String answer = String.valueOf(function.solveForAnswer(function.getOperator()));
 
                     // sets the text to the result
                     TextFieldPanel.setText(answer);
@@ -145,7 +146,9 @@ public class ButtonHandler {
                     String firstInput = function.getInput1();
                     String secondInput = function.getInput2();
 
-                    TextFieldPanel.setCurrentOperationText(firstInput + " " + operator + " " + secondInput);
+                    String operationText = firstInput + " " + operator + " " + secondInput;
+
+                    TextFieldPanel.setCurrentOperationText(operationText);
 
                     // so can keep adding, subtracting, etc.
                     // reset operator, num1, num2, decimalcount, isconvertedtopercent

@@ -29,6 +29,7 @@ public class Function {
     public boolean getIsPercent() {return this.isPercent;}
     public int getDecimalCount() {return this.decimalCount;}
     public boolean getIsAnAnswer() {return this.isAnAnswer;}
+    public double getAnswer() {return this.answer;}
 
     // setters
     public void setX(double newValue) {this.x = newValue;}
@@ -84,7 +85,7 @@ public class Function {
         }
     }
 
-    public double getAnswer(String operator) {
+    public double solveForAnswer(String operator) {
 
         this.x = Double.parseDouble(input1);
         this.y = Double.parseDouble(input2);
