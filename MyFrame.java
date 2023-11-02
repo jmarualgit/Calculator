@@ -34,12 +34,11 @@ public class MyFrame extends JFrame {
     // constructor
     MyFrame() {
 
-        this.setSize(500, 500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        buttonHandler = new ButtonHandler();
         this.setLayout(new BorderLayout(0, 0));
-
+        this.setSize(800, 700);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        buttonHandler = new ButtonHandler();
         buttonPanel = new ButtonPanel();
         textFieldPanel = new TextFieldPanel();
 
